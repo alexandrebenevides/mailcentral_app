@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mailcentral_app:
+    container_name: mailcentral_app
+    image: docker.io/bitnami/laravel:10
+    ports:
+      - '80:8000'
+    environment:
+      - DB_HOST=database
+      - DB_PORT=3306
+      - DB_DATABASE=mailcentral
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+    volumes:
+      - ./mailcentral_app:/app
+    depends_on:
+      - database
+    networks:
+      - general_network
+
+  database:
+    container_name: database
+    image: mariadb:11.1.2
+    environment:
+      MARIADB_USER: root
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: mailcentral
+    volumes:
+      - ./db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - general_network
+
+networks:
+  general_network:
+    driver: bridge
