@@ -7,19 +7,23 @@ O MailCentral é um projeto Laravel 10 desenvolvido com o propósito de centrali
 
 ## Instalação
 
-1. Crie uma pasta chamada `MailCentral`.
-2. Clone o projeto para dentro da pasta `MailCentral`.
-3. Navegue até o diretório do projeto e copie o arquivo `docker/docker-compose.yml` para dentro da pasta `MailCentral`.
-4. Execute o comando 
+1. Clone o projeto.
+2. Na pasta do projeto, copie o arquivo `.env.example` para `.env`.
+3. Gere a chave de aplicação.
+4. Navegue até o diretório do projeto e instale as dependências
 
 ```bash
-docker-compose up -d
+composer install
 ```
 
-5. Na pasta do projeto, copie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente, incluindo as configurações do banco de dados.
-6. Gere a chave de aplicação.
-7. Execute as migrações do banco de dados.
-8. Acesse a aplicação em [http://localhost](http://localhost).
+5. Suba os containers 
+
+```bash
+./vendor/bin/sail up -d
+```
+
+6. Execute as migrações do banco de dados.
+7. Acesse a aplicação em [http://localhost](http://localhost).
 
 ## Funcionalidades Principais
 
