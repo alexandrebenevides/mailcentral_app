@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Contracts;
 
-interface UserRepositoryInterface {
+interface UserRepositoryInterface
+{
     public function create(array $data);
 }

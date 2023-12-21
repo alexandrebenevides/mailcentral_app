@@ -16,10 +16,12 @@ class SignUp extends Component
 
     public function render()
     {
-        return view('livewire.pages.sign-up');
+        return view('livewire.pages.sign-up')
+            ->layout('livewire.layouts.app');
     }
 
-    public function boot(UserServiceInterface $userService) {
+    public function boot(UserServiceInterface $userService)
+    {
         $this->userService = $userService;
     }
 
@@ -30,6 +32,13 @@ class SignUp extends Component
 
     public function registerUser()
     {
+        $this->validate([ 
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'confirmPassword' => 'required|same:password',
+        ]);
+
         $userData = $this->only(['name', 'email', 'password']);
         $this->userService->createUser($userData);
     }

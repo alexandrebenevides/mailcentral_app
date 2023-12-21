@@ -2,6 +2,7 @@
 
 namespace App\Services\Contracts;
 
-interface UserServiceInterface {
+interface UserServiceInterface
+{
     public function createUser(array $userData);
 }

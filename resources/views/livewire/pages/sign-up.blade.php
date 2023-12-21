@@ -24,6 +24,7 @@
           >
             Crie sua conta
           </h1>
+
           <label class="block text-sm">
             <span class="text-gray-700 dark:text-gray-400">Nome completo</span>
             <input
@@ -32,6 +33,8 @@
               wire:model="name"
             />
           </label>
+          <p class="text-red-700 dark:text-red-400 text-sm">@error('name') {{ $message }} @enderror</p>
+
           <label class="block mt-4 text-sm">
             <span class="text-gray-700 dark:text-gray-400">E-mail</span>
             <input
@@ -40,6 +43,8 @@
               wire:model="email"
             />
           </label>
+          <p class="text-red-700 dark:text-red-400 text-sm">@error('email') {{ $message }} @enderror</p>
+
           <label class="block mt-4 text-sm">
             <span class="text-gray-700 dark:text-gray-400">Senha</span>
             <input
@@ -49,6 +54,8 @@
               wire:model="password"
             />
           </label>
+          <p class="text-red-700 dark:text-red-400 text-sm">@error('password') {{ $message }} @enderror</p>
+
           <label class="block mt-4 text-sm">
             <span class="text-gray-700 dark:text-gray-400">
               Confirme sua senha
@@ -60,6 +67,7 @@
               wire:model="confirmPassword"
             />
           </label>
+          <p class="text-red-700 dark:text-red-400 text-sm">@error('confirmPassword') {{ $message }} @enderror</p>
 
           <button
             class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
