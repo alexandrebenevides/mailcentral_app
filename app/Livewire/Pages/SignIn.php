@@ -28,9 +28,19 @@ class SignIn extends Component
         return $this->redirect('/signup', navigate: true);
     }
 
-    public function authUser()
+    public function authenticateUser()
     {
+        $this->validate([ 
+            'email' => 'required|email|max:255',
+            'password' => 'required|string|min:8',
+        ]);
+
         $credentials = $this->only(['email', 'password']);
-        $this->authService->authUser($credentials);
+
+        if ($this->authService->authUser($credentials)) {
+            return $this->redirect('/dashboard/accounts', navigate: true);
+        }
+
+        $this->addError('failAuthentication', 'Credenciais inválidas. Por favor, tente novamente.');
     }
 }

@@ -41,5 +41,8 @@ class SignUp extends Component
 
         $userData = $this->only(['name', 'email', 'password']);
         $this->userService->createUser($userData);
+
+        $this->name = $this->email = $this->password = $this->confirmPassword = '';
+        session()->flash('successRegisterUser', 'Seu usuário foi cadastrado com sucesso. Acesse sua conta.');
     }
 }

@@ -76,6 +76,8 @@
             Criar conta
           </button>
 
+          <p class="mt-4 text-green-700 text-sm">@if(session()->has('successRegisterUser')) {{ session('successRegisterUser') }} @endif</p>
+
           <hr class="my-8" />
 
           <p class="mt-4">
