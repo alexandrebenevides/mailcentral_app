@@ -33,9 +33,9 @@ class SignUp extends Component
     public function registerUser()
     {
         $this->validate([ 
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+            'name' => 'required|string|min:4|max:255',
+            'email' => 'required|email|unique:users,email|max:255',
+            'password' => 'required|string|min:8',
             'confirmPassword' => 'required|same:password',
         ]);
 
